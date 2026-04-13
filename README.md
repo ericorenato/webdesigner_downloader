@@ -57,37 +57,151 @@ Parse CSS (css-tree) → Reescrever URLs → Limpar scripts → Extrair tokens �
 | `/downloads/:id.zip` | GET | Serve arquivo ZIP gerado |
 | `/health` | GET | Healthcheck |
 
-## Quick Start
+## Guia para Alunos: como baixar e rodar o projeto
 
-### Com Docker (recomendado)
+### 1. O que voce precisa instalar antes
+
+Antes de tudo, voce precisa ter dois programas instalados no seu computador:
+
+**Node.js (versao 20 ou superior)**
+
+1. Acesse https://nodejs.org
+2. Baixe a versao **LTS** (o botao verde grande)
+3. Execute o instalador e clique em "Next" ate finalizar
+4. Para confirmar que instalou certo, abra o terminal e digite:
 
 ```bash
-docker compose up --build
+node --version
 ```
 
-Acesse `http://localhost:3500`
+Se aparecer algo como `v20.x.x` ou superior, esta tudo certo.
 
-### Desenvolvimento local
+**Git**
+
+1. Acesse https://git-scm.com/downloads
+2. Baixe para o seu sistema operacional (Windows, Mac ou Linux)
+3. Execute o instalador (no Windows, pode manter todas as opcoes padrao)
+4. Para confirmar, abra o terminal e digite:
 
 ```bash
-# Instalar dependencias
+git --version
+```
+
+Se aparecer algo como `git version 2.x.x`, esta tudo certo.
+
+> **Dica:** No Windows, depois de instalar o Git voce pode usar o **Git Bash** como terminal. Clique com o botao direito em qualquer pasta e selecione "Open Git Bash here".
+
+---
+
+### 2. Baixar o projeto (clonar o repositorio)
+
+Abra o terminal e navegue ate a pasta onde voce quer salvar o projeto. Exemplo:
+
+```bash
+cd ~/Desktop
+```
+
+Agora clone o repositorio:
+
+```bash
+git clone https://github.com/ericorenato/webdesigner_downloader.git
+```
+
+Isso vai criar uma pasta chamada `webdesigner_downloader` com todo o codigo. Entre nela:
+
+```bash
+cd webdesigner_downloader
+```
+
+---
+
+### 3. Instalar as dependencias
+
+O projeto usa bibliotecas externas que precisam ser baixadas. Rode este comando na raiz do projeto:
+
+```bash
 npm install
+```
 
-# Instalar Playwright (necessario)
-cd backend && npx playwright install chromium && cd ..
+Aguarde finalizar (pode levar alguns minutos na primeira vez).
 
-# Rodar frontend + backend simultaneamente
+Agora instale o navegador que o backend usa internamente para acessar as paginas:
+
+```bash
+cd backend
+npx playwright install chromium
+cd ..
+```
+
+> **Nota:** O Playwright vai baixar uma copia do Chromium (~150 MB). Isso e normal e necessario para o projeto funcionar.
+
+---
+
+### 4. Rodar o projeto
+
+Com tudo instalado, basta rodar:
+
+```bash
 npm run dev
 ```
 
-- Frontend: `http://localhost:5173`
-- Backend: `http://localhost:3500`
+Isso inicia o frontend e o backend ao mesmo tempo. Voce vai ver mensagens no terminal indicando que os dois servidores estao rodando.
 
-### CLI
+Agora abra o navegador e acesse:
+
+```
+http://localhost:5173
+```
+
+Pronto! A interface do Webdesign Downloader vai aparecer. Cole a URL de qualquer site e clique para baixar os assets.
+
+---
+
+### 5. Parar o projeto
+
+Para parar os servidores, volte ao terminal e pressione:
+
+```
+Ctrl + C
+```
+
+---
+
+### Alternativa: rodar com Docker
+
+Se voce ja tem o **Docker Desktop** instalado (https://www.docker.com/products/docker-desktop), pode rodar tudo com um unico comando, sem precisar instalar Node.js:
 
 ```bash
-node backend/src/cli.js <url> -o ./output
+git clone https://github.com/ericorenato/webdesigner_downloader.git
+cd webdesigner_downloader
+docker compose up --build
 ```
+
+Acesse `http://localhost:3500` no navegador.
+
+---
+
+### Usando pela linha de comando (CLI)
+
+Voce tambem pode usar o projeto direto pelo terminal, sem abrir o navegador:
+
+```bash
+node backend/src/cli.js https://exemplo.com -o ./meus-assets
+```
+
+Os arquivos serao salvos na pasta `./meus-assets`.
+
+---
+
+### Problemas comuns
+
+| Problema | Solucao |
+|----------|---------|
+| `node: command not found` | Node.js nao esta instalado ou nao esta no PATH. Reinstale pelo site oficial. |
+| `git: command not found` | Git nao esta instalado. Baixe em https://git-scm.com/downloads |
+| Erro ao rodar `npm install` | Verifique se esta dentro da pasta do projeto (`cd webdesigner_downloader`) |
+| Erro de permissao no Playwright | No Mac/Linux, tente com `sudo npx playwright install chromium` |
+| Porta 5173 ja em uso | Outro processo esta usando a porta. Feche-o ou mude a porta no `vite.config.js` |
 
 ## Variaveis de Ambiente
 
