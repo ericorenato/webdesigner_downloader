@@ -9,9 +9,10 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Markdown files (exceto README)
+# Markdown files (exceto README e prompt_design)
 *.md
 !README.md
+!PROMPT_DESIGN.md
 
 # Reference site files (not part of the app)
 assets/

@@ -227,6 +227,21 @@ Copie `.env.example` para `.env` e ajuste conforme necessario:
 
 **Infra:** Docker (multi-stage build), npm workspaces
 
+## Bonus: Prompt para extrair Design System de qualquer site
+
+O repositorio inclui o arquivo [`PROMPT_DESIGN.md`](PROMPT_DESIGN.md) — um prompt pronto para usar com IA (como o Claude ou ChatGPT) que recebe o HTML de um site e gera automaticamente uma **pagina de documentacao visual** com tipografia, cores, componentes, layout, animacoes e iconografia extraidos diretamente do codigo original.
+
+Util para estudar e documentar o design system de qualquer site de referencia.
+
+---
+
+## Autor
+
+Criado por **Erico Renato Almeida**.
+
+- Site: [ericorenato.com.br](https://ericorenato.com.br)
+- Instagram: [@erico.arenato](https://instagram.com/erico.arenato)
+
 ## License
 
 MIT
