@@ -1,0 +1,9 @@
+node_modules
+downloads
+.git
+*.md
+index.html
+design-system.html
+assets/
+.env
+.env.example

@@ -1,0 +1,14 @@
+services:
+  webdesign-downloader:
+    build: .
+    ports:
+      - "3500:3500"
+    volumes:
+      - ./downloads:/app/downloads
+    environment:
+      - PORT=3500
+      - MAX_CONCURRENT=3
+      - CLEANUP_INTERVAL_MIN=30
+      - MAX_FILE_AGE_MIN=60
+      - NODE_ENV=production
+    restart: unless-stopped
