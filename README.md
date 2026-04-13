@@ -1,6 +1,49 @@
-# Webdesign Downloader
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                                                                     │
+│   █ █ █ █▀▀ █▀▄ █▀▄ █▀▀ █▀▀ █ █▀▀ █▄ █                            │
+│   █▄█ █ █▀  █▀▄ █ █ █▀  ▀▀█ █ █ █ █ ▀█                            │
+│   ▀ ▀ ▀ ▀▀▀ ▀▀  ▀▀  ▀▀▀ ▀▀▀ ▀ ▀▀▀ ▀  ▀                            │
+│                                                                     │
+│   █▀▄ █▀█ █ █ █ █▄ █ █   █▀█ █▀█ █▀▄ █▀▀ █▀▄                      │
+│   █ █ █ █ █▄█ █ █ ▀█ █   █ █ █▀█ █ █ █▀  █▀▄                      │
+│   ▀▀  ▀▀▀ ▀ ▀ ▀ ▀  ▀ ▀▀▀ ▀▀▀ ▀ ▀ ▀▀  ▀▀▀ ▀ ▀                      │
+│                                                                     │
+│   Extraia assets visuais de qualquer site.                          │
+│   HTML, CSS, imagens, fontes, SVGs — tudo organizado.               │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
 
-Ferramenta CLI + Web que baixa todos os assets visuais de uma webpage (HTML, CSS, imagens, fontes, SVGs) e organiza para analise de design system. Usa Playwright/Chromium headless para renderizar as paginas.
+```
+$ webdesign-downloader --version
+  v1.0.0
+
+$ webdesign-downloader --info
+
+  ┌ Projeto
+  │
+  ├── Stack ........... React 19 · Fastify · Vite · Tailwind v4
+  ├── Motor ........... Playwright / Chromium headless
+  ├── Modo ............ CLI + API HTTP + Interface Web
+  │
+  ├ Autor
+  │
+  ├── Nome ............ Erico Renato Almeida
+  ├── Site ............ https://ericorenato.com.br
+  └── Instagram ....... @erico.arenato
+
+$ webdesign-downloader https://exemplo.com -o ./assets
+
+  [1/6] Renderizando pagina .............. done
+  [2/6] Extraindo assets ................. 47 encontrados
+  [3/6] Baixando arquivos ................ 47/47
+  [4/6] Reescrevendo URLs ................ done
+  [5/6] Extraindo design tokens .......... done
+  [6/6] Gerando ZIP ...................... output/exemplo-com.zip
+
+  ✔ Concluido em 12.4s
+```
 
 ## Funcionalidades
 
